@@ -1,0 +1,30 @@
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="javascript:void(0);" [routerLink]="['/home']" routerLinkActive="router-link-active" >JVLcode</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto"  >
+
+        <ng-container *ngIf="this.auth.isAuthenticate();then Authenticated;else notAuthenticated"></ng-container>
+        
+
+<ng-template #notAuthenticated>
+
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a></li>
+        <li><a class="nav-link" href="javascript:void(0);" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a></li>
+
+    </ng-template>
+
+    <ng-template #Authenticated>
+    
+        <li class="nav-item"><a class="nav-link" [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >Dashboard</a></li>
+        <li><a class="nav-link" href="javascript:void(0);"  >Logout</a></li>
+    </ng-template>
+    </ul>
+
+    </div>
+</nav>
